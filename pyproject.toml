@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pymigrate-pro"
+version = "0.1.0"
+authors = [
+  { name="DECRUX9812", email="decrux9812@users.noreply.github.com" },
+]
+description = "Lightweight, reliable migration tool for User Profiles"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "customtkinter",
+    "Pillow",
+    "appdirs"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/DECRUX9812/PyMigrate-Pro"
+"Bug Tracker" = "https://github.com/DECRUX9812/PyMigrate-Pro/issues"
