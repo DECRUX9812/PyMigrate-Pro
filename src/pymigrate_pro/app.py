@@ -1,4 +1,4 @@
-"""import customtkinter as ctk
+import customtkinter as ctk
 import os
 import threading
 from tkinter import filedialog, messagebox, BooleanVar
@@ -355,4 +355,4 @@ class RestorePage(ctk.CTkFrame):
 if __name__ == "__main__":
     app = PyMigrateApp()
     app.mainloop()
-"""
+
