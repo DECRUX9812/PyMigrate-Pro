@@ -1,7 +1,8 @@
-import customtkinter as ctk
+"""import customtkinter as ctk
 import os
 import threading
 from tkinter import filedialog, messagebox, BooleanVar
+
 from .backend import ProfileBackend
 
 ctk.set_appearance_mode("Dark")
@@ -18,9 +19,13 @@ class PyMigrateApp(ctk.CTk):
 
         self.backend = ProfileBackend()
         self.selected_mode = None
+
         # State
         self.selected_users = {}  # { "Username": [Folders] }
-        self.backup_options = {"export_registry": False, "backup_mail": True}
+        self.backup_options = {
+            "export_registry": False,
+            "backup_mail": True,
+        }
 
         # UI Setup
         self.grid_columnconfigure(1, weight=1)
@@ -74,8 +79,10 @@ class WelcomePage(ctk.CTkFrame):
 
         desc = ctk.CTkLabel(
             self,
-            text="Enterprise User Profile Migration Tool\n\n"
-            "Suppports: Batch Transfer, Outlook Profiles, Registry Settings",
+            text=(
+                "Enterprise User Profile Migration Tool\n\n"
+                "Suppports: Batch Transfer, Outlook Profiles, Registry Settings"
+            ),
             font=ctk.CTkFont(size=16),
         )
         desc.pack(pady=20)
@@ -132,9 +139,7 @@ class BatchUserPage(ctk.CTkFrame):
         self.controller = controller
 
         # Header
-        label = ctk.CTkLabel(
-            self, text="Select Users & Data", font=ctk.CTkFont(size=24)
-        )
+        label = ctk.CTkLabel(self, text="Select Users & Data", font=ctk.CTkFont(size=24))
         label.pack(pady=10)
 
         # Main Content: Split 50/50 Users and Options
@@ -175,7 +180,10 @@ class BatchUserPage(ctk.CTkFrame):
 
         ctk.CTkLabel(
             right_panel,
-            text="Note: Registry export only works\nfor the currently logged in user.\nOthers will be skipped.",
+            text=(
+                "Note: Registry export only works\nfor the currently logged in user.\n"
+                "Others will be skipped."
+            ),
             text_color="gray",
             font=("Arial", 12),
         ).pack(anchor="w", padx=10)
@@ -200,8 +208,12 @@ class BatchUserPage(ctk.CTkFrame):
         for user in users:
             var = BooleanVar(value=False)
             # Pre-select current user
-            if user.lower() == os.getlogin().lower():
-                var.set(True)
+            try:
+                if user.lower() == os.getlogin().lower():
+                    var.set(True)
+            except OSError:
+                # os.getlogin() may fail in some environments; ignore
+                pass
 
             cb = ctk.CTkCheckBox(self.user_scroll, text=user, variable=var)
             cb.pack(anchor="w", pady=5, padx=5)
@@ -272,16 +284,15 @@ class BackupProgressPage(ctk.CTkFrame):
         def run():
             def cb(fname, pct):
                 self.progress.set(pct)
-                if pct == 0:
-                    self.status.configure(text=fname)
-                else:
-                    self.status.configure(text=f"Backing up: {int(pct*100)}%")
-
-                if pct > 0 and (int(pct * 100) % 5 == 0):  # Log throttle
+                if pct > 0 and (int(pct * 100) % 5 == 0):
+                    # Log throttle
                     self.log.see("end")
 
             success, msg = self.controller.backend.create_batch_backup(
-                self.controller.selected_users, dest, self.controller.backup_options, cb
+                self.controller.selected_users,
+                dest,
+                self.controller.backup_options,
+                cb,
             )
 
             self.log.insert("end", f"\n{msg}\n")
@@ -300,16 +311,12 @@ class RestorePage(ctk.CTkFrame):
         super().__init__(parent)
         self.controller = controller
 
-        ctk.CTkLabel(self, text="Batch Restore", font=ctk.CTkFont(size=24)).pack(
-            pady=20
-        )
+        ctk.CTkLabel(self, text="Batch Restore", font=ctk.CTkFont(size=24)).pack(pady=20)
 
         self.file_lbl = ctk.CTkLabel(self, text="No File Selected")
         self.file_lbl.pack(pady=10)
 
-        ctk.CTkButton(self, text="Select .pmig File", command=self.pick_file).pack(
-            pady=10
-        )
+        ctk.CTkButton(self, text="Select .pmig File", command=self.pick_file).pack(pady=10)
 
         self.progress = ctk.CTkProgressBar(self, width=500)
         self.progress.pack(pady=30)
@@ -348,3 +355,4 @@ class RestorePage(ctk.CTkFrame):
 if __name__ == "__main__":
     app = PyMigrateApp()
     app.mainloop()
+"""
