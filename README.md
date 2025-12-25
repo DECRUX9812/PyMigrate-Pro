@@ -8,7 +8,17 @@ PyMigrate Pro streamlines the process of moving user data between machines. It i
 
 ---
 
-## 🚀 Key Features
+## � Download
+
+<a href="dist/PyMigratePro.exe">
+  <img src="https://img.shields.io/badge/Download-Windows_Standalone_Exe-blue?style=for-the-badge&logo=windows" alt="Download EXE">
+</a>
+
+**[Direct Link to Executable (17 MB)](dist/PyMigratePro.exe)**
+
+---
+
+## �🚀 Key Features
 
 * **📂 Batch Processing**: Select and migrate multiple user profiles simultaneously.
 * **📧 Smart Registry & Mail**: Automatically captures Outlook profiles and detects `.pst/.ost` files and Thunderbird data.
