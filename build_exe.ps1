@@ -8,8 +8,9 @@ Write-Host "Building PyMigrate Pro Executable..."
 # --collect-all customtkinter is needed to include theme files and assets
 pyinstaller --noconfirm --onefile --windowed --clean `
     --name "PyMigratePro" `
+    --paths src `
     --collect-all customtkinter `
-    src/pymigrate_pro/__main__.py
+    launcher.py
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "`nBuild Successful!"
