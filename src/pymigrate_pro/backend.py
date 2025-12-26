@@ -1,7 +1,7 @@
 import os
 import shutil
 import zipfile
-import threading
+
 from datetime import datetime
 import platform
 import subprocess
@@ -184,16 +184,16 @@ class ProfileBackend:
                     if len(parts) < 2:
                         continue
 
-                    username = parts[0]
+                    # username = parts[0]
 
                     # 1. Check if it's a Registry File
                     if "Registry" in parts and file.endswith(".reg"):
                         # Extract to temp and run
                         # Dangerous! Ask user? For now, we restore to Documents/RestoredRegistry
                         # to be safe.
-                        target_path = os.path.join(
-                            self.users_dir, username, "Documents", "Restored_Registry"
-                        )
+                        # target_path = os.path.join(
+                        #     self.users_dir, username, "Documents", "Restored_Registry"
+                        # )
                         zipf.extract(
                             file, self.users_dir
                         )  # Extracts to C:\Users\Username\...
