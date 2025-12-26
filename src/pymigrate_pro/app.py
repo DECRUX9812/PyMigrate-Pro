@@ -139,7 +139,9 @@ class BatchUserPage(ctk.CTkFrame):
         self.controller = controller
 
         # Header
-        label = ctk.CTkLabel(self, text="Select Users & Data", font=ctk.CTkFont(size=24))
+        label = ctk.CTkLabel(
+            self, text="Select Users & Data", font=ctk.CTkFont(size=24)
+        )
         label.pack(pady=10)
 
         # Main Content: Split 50/50 Users and Options
@@ -311,12 +313,16 @@ class RestorePage(ctk.CTkFrame):
         super().__init__(parent)
         self.controller = controller
 
-        ctk.CTkLabel(self, text="Batch Restore", font=ctk.CTkFont(size=24)).pack(pady=20)
+        ctk.CTkLabel(self, text="Batch Restore", font=ctk.CTkFont(size=24)).pack(
+            pady=20
+        )
 
         self.file_lbl = ctk.CTkLabel(self, text="No File Selected")
         self.file_lbl.pack(pady=10)
 
-        ctk.CTkButton(self, text="Select .pmig File", command=self.pick_file).pack(pady=10)
+        ctk.CTkButton(self, text="Select .pmig File", command=self.pick_file).pack(
+            pady=10
+        )
 
         self.progress = ctk.CTkProgressBar(self, width=500)
         self.progress.pack(pady=30)
@@ -355,4 +361,3 @@ class RestorePage(ctk.CTkFrame):
 if __name__ == "__main__":
     app = PyMigrateApp()
     app.mainloop()
-
