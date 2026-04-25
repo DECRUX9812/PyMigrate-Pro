@@ -3,5 +3,5 @@ pre-commit>=3.0
 black>=24.10
 isort>=5.12
 ruff>=0.0.291
-build>=1.0
+build>=1.4.4
 twine
