@@ -2,9 +2,9 @@
 
 ![CI](https://github.com/DECRUX9812/PyMigrate-Pro/actions/workflows/ci.yml/badge.svg) ![License](https://img.shields.io/badge/License-MIT-blue.svg) ![Python](https://img.shields.io/badge/Python-3.10%2B-yellow.svg)
 
-> **A lightweight, enterprise-grade migration tool for Windows User Profiles.**
+> A Windows utility for copying user profiles between machines.
 
-PyMigrate Pro streamlines the process of moving user data between machines. It is designed as a safer, open-source alternative to proprietary tools, featuring batch processing, smart registry handling for Outlook profiles, and an intuitive modern GUI.
+PyMigrate Pro copies user data between Windows machines. The current implementation includes batch processing, Outlook profile registry handling, PST/OST and Thunderbird data detection, and a CustomTkinter interface.
 
 ---
 
@@ -20,26 +20,26 @@ PyMigrate Pro streamlines the process of moving user data between machines. It i
 
 ## �🚀 Key Features
 
-* **📂 Batch Processing**: Select and migrate multiple user profiles simultaneously.
-* **📧 Smart Registry & Mail**: Automatically captures Outlook profiles and detects `.pst/.ost` files and Thunderbird data.
-* **🎨 Variable Theming**: Modern, responsive UI with dark mode support.
-* **🛡️ Reliability**: Robust error handling and logging for enterprise environments.
-* **📦 Portable**: Can be bundled into a single standalone `.exe` for easy deployment.
+* **Batch processing**: Select and migrate multiple user profiles.
+* **Profile data**: Copy user files and selected application data.
+* **Mail data**: Detect Outlook `.pst`/`.ost` files and Thunderbird data.
+* **Registry handling**: Capture Outlook profile settings.
+* **Portable build**: Package the application as a standalone Windows executable.
 
 ## 🛠️ Technology Stack
 
 * **Language**: Python 3.10+
-* **GUI Framework**: [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) (Modern wrappers for Tkinter)
+* **GUI framework**: [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter)
 * **Packaging**: PyInstaller
 * **System Interaction**: `winreg` for Registry operations, `shutil` for high-performance file copy.
 
 ## 💡 Motivation
 
-I built PyMigrate Pro to address the lack of reliable, scriptable, and modern open-source tools for local user profile migration. While proprietary tools exist, they often lack flexibility. This project demonstrates:
+The project is also a practical example of:
 
-* Building robust desktop applications with Python.
-* Interacting with low-level Windows APIs (Registry).
-* Structuring a project for maintainability and CI/CD automation.
+* Building a Windows desktop utility in Python.
+* Using the Windows Registry through `winreg`.
+* Packaging and testing a desktop application with CI.
 
 ## 📥 Installation & Usage
 
