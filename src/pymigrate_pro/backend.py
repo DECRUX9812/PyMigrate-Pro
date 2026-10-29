@@ -73,12 +73,9 @@ class ProfileBackend:
         """Exports a specific HKCU registry key to a file."""
         # reg export "HKCU\Software\..." "output.reg" /y
         full_key = f"HKEY_CURRENT_USER\\{key_path}"
-        cmd = f'reg export "{full_key}" "{output_file}" /y'
         try:
-            # We use shell=True to access the reg command
             subprocess.run(
-                cmd,
-                shell=True,
+                ["reg", "export", full_key, str(output_file), "/y"],
                 check=True,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
